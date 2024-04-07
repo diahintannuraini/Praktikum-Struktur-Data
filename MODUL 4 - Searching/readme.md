@@ -65,43 +65,78 @@ int main(){
  ### Interpretasi : 
  Kodingan di atas menggunakan algoritma Bubble Sort untuk mengurutkan array bilangan double secara meningkat. Algoritma ini membandingkan pasangan elemen dalam array dan menukar posisi jika diperlukan. Iterasi terus dilakukan hingga tidak ada lagi pertukaran posisi yang dibutuhkan, menandakan bahwa array sudah terurut. Fungsi 'print_array' digunakan untuk mencetak array sebelum dan sesudah pengurutan. Dalam 'main', array diinisialisasi dan dicetak sebelum dan sesudah pengurutan dilakukan.
 
-### 2.Mengurutkan karakter secara descending (dari terbesar hingga terkecil) menggunakan Algoritma Insertion Sort
+### 2. Buatlah sebuah project untuk melakukan pencarian data dengan menggunakan Binary Search
+
 ```C++
 #include <iostream>
+#include <conio.h>
+#include <iomanip>
+
 using namespace std;
 
-void insertion_sort(char arr[], int length) {
-    int i, j;
-    char tmp;
+int cari;
 
-    for (i = 1; 1 < length; i++) {
-        j = i;
-
-        while (j > 0 && arr[j - i] < arr[j]) {
-            tmp = arr[j];
-            arr[j] = arr[j - 1];
-            arr[j - 1] = tmp;
-        }//end of while loop
-    }//end of for loop
+void selection_sort(int data[], int length) {
+    int temp, min, i, j;
+    for(i = 0; i < length; i++) {
+        min = i;
+        for(j = i + 1; j < length; j++) {
+            if(data[j] < data[min]) {
+                min=j;
+            }
+        }
+        temp = data[i];
+        data[i] = data[min];
+        data[min] = temp;
+    }
 }
 
-void print_array(char a[], int length) {
-
-    for(int i=0; i<length; i++) {
-        cout << a[i] << "\t";
+void binarysearch(int data[], int length) {
+    int awal, akhir, tengah, b_flag = 0;
+    awal = 0;
+    akhir = length - 1;
+    while (b_flag == 0 && awal <= akhir) {
+        tengah = (awal + akhir) / 2;
+        if(data[tengah] == cari) {
+            b_flag = 1;
+            break;
+        } else if(data[tengah] < cari)
+            awal = tengah + 1;
+        else
+            akhir = tengah - 1;
     }
-    cout << endl;
+    if(b_flag == 1)
+        cout<<"\n Data ditemukan pada index ke- " << tengah << endl;
+    else
+        cout<<"\n Data tidak ditemukan\n";
 }
 
 int main() {
-    int length = 6;
-    char a[length] = {'c', 'f', 'a', 'z', 'd', 'p'};
+    int data[7] = {1, 8, 2, 5, 4, 9, 7};
+    int length = sizeof(data) / sizeof(data[0]);
 
-    cout << "Urutan karakter sebelum sorting:" << endl;
-    print_array(a, length);
+    cout << "\t BINARY SEARCH " << endl;
+    cout << "\n Data : ";
+    // Tampilkan data awal
+    for(int x = 0; x<7; x++)
+        cout << setw(3) << data[x];
+    cout << endl;
 
-    cout << "\nUrutan karakter setelah sorting:" << endl;
-    print_array(a, length);
+    cout << "\n Masukkan data yang ingin Anda cari : ";
+    cin >> cari;
+
+    cout << "\n Data diurutkan : ";
+    // Urutkan data dengan selection sort
+    selection_sort(data, length);
+
+    // Tampilkan data setelah diurutkan
+    for(int x = 0; x < 7; x++)
+        cout << setw(3) << data[x];
+    cout << endl;
+
+    binarysearch(data, length);
+    _getche();
+    return EXIT_SUCCESS;
 }
 ```
 ### Output: 
