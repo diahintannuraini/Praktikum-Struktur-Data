@@ -139,9 +139,8 @@ int main() {
     return EXIT_SUCCESS;
 }
 ```
-### Output: 
-
-![Guided 2](https://github.com/suxeno/Struktur-Data-Assignment/assets/162097079/eeb27b23-dd77-4613-addb-288bd5d44860)
+### Output:
+![Guided 2 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/c143c676-156c-42d3-b54a-8d93bf6f7e0e)
 
 ### Interpretasi:
 
