@@ -60,8 +60,7 @@ int main(){
 ```
 
 ### Output:
-
-![Guided 1](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/70fb1a6e-694d-4128-9376-1975e081f2cc)
+![Guided 1 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/09ee619b-bfa0-47e5-aead-c5dc44b69fd0)
 
  ### Interpretasi : 
  Kodingan di atas menggunakan algoritma Bubble Sort untuk mengurutkan array bilangan double secara meningkat. Algoritma ini membandingkan pasangan elemen dalam array dan menukar posisi jika diperlukan. Iterasi terus dilakukan hingga tidak ada lagi pertukaran posisi yang dibutuhkan, menandakan bahwa array sudah terurut. Fungsi 'print_array' digunakan untuk mencetak array sebelum dan sesudah pengurutan. Dalam 'main', array diinisialisasi dan dicetak sebelum dan sesudah pengurutan dilakukan.
