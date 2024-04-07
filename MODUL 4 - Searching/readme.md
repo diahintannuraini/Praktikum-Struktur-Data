@@ -149,43 +149,64 @@ Kodingan di atas menggunakan algoritma Insertion Sort untuk mengurutkan array ka
 
 ## Unguided 
 
-### 1. Kelas S1 IF 2016 G memiliki 5 mahasiswa. Pada akhir semester mereka menerima lembar Indeks Prestasi Semester (IPS), masing-masing mahasiswa tersebut memiliki IPS sebagai berikut: {3.8, 2.9, 3.3, 4.0, 2.4}. Buatlah program untuk mengurutkan IPS mahasiswa tersebut dari yang terbesar hingga terkecil dengan menggunakan algoritma Selection Sort!
-
+### 1. Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
 ```C++
-#include<iostream>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 using namespace std;
-void selection_sort(float arr[], int n) {
-    for (int i = 0; i < n-1; i++) {
-        int min = i;
-        for (int j = i+1; j < n; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-} }
-        if (min != i) {
-            float temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
-} }
+
+char cari;
+
+void selection_sort(string &kalimat) {
+    sort(kalimat.begin(), kalimat.end());
 }
-void print_array205(float arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+
+void binarysearch(string kalimat) {
+    int awal, akhir, tengah, b_flag = 0;
+    awal = 0;
+    akhir = kalimat.length() - 1;
+    while (b_flag == 0 && awal <= akhir) {
+        tengah = (awal + akhir) / 2;
+        if(kalimat[tengah] == cari) {
+            b_flag = 1;
+            break;
+        } else if(kalimat[tengah] < cari)
+            awal = tengah + 1;
+        else
+            akhir = tengah - 1;
     }
-    cout << endl;
+    if(b_flag == 1)
+        cout<<"\n Huruf ditemukan pada index ke- " << tengah << endl;
+    else
+        cout<<"\n Huruf tidak ditemukan\n";
 }
+
 int main() {
-    const int length = 5;
-    float a[length] = {3.8, 2.9, 3.3, 4.0, 2.4};
-    cout << "IPS sebelum sorting: " << endl;
-    print_array205(a, length);
-    selection_sort(a, length);
-    cout << "IPS setelah sorting: " << endl;
-    print_array205(a, length);
-return 0; 
+    string kalimat = "hai gais";
+    
+    cout << "\t BINARY SEARCH " << endl;
+    cout << "\n Kalimat : " << kalimat << endl;
+
+    cout << "\n Masukkan huruf yang ingin Anda cari : ";
+    cin >> cari;
+
+    cout << "\n Kalimat diurutkan : ";
+    // Urutkan kalimat dengan selection sort
+    selection_sort(kalimat);
+
+    // Tampilkan kalimat setelah diurutkan
+    cout << kalimat << endl;
+
+    binarysearch(kalimat);
+
+    return 0;
 }
 ```
 ### Output:
-![Unguided 1](https://github.com/suxeno/Struktur-Data-Assignment/assets/162097079/fb29776e-e211-4225-b1c6-c80c38253d60)
+![image](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/1aa0f143-2866-4fbd-a507-693e33d97e8b)
+
 
 ### Interpretasi: 
 Program di atas menggunakan algoritma selection sort dalam C++ untuk mengurutkan angka dalam array. Algoritma ini bekerja dengan membandingkan setiap angka satu per satu, lalu menukar posisi jika ditemukan angka yang lebih kecil. Proses ini terus berulang hingga seluruh angka dalam array terurut dari yang terkecil ke yang terbesar.
