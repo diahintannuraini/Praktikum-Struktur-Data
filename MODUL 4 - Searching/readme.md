@@ -171,7 +171,7 @@ Output tersebut menunjukkan hasil dari pencarian Binary Search. Data awal yang d
 
 ## Unguided 
 
-### 1. Kelas S1 IF 2016 G memiliki 5 mahasiswa. Pada akhir semester mereka menerima lembar Indeks Prestasi Semester (IPS), masing-masing mahasiswa tersebut memiliki IPS sebagai berikut: {3.8, 2.9, 3.3, 4.0, 2.4}. Buatlah program untuk mengurutkan IPS mahasiswa tersebut dari yang terbesar hingga terkecil dengan menggunakan algoritma Selection Sort!
+### Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
 
 ```C++
 #include <iostream>
@@ -207,18 +207,28 @@ void binarysearch(string kalimat) {
 }
 
 int main() {
-    const int length = 5;
-    float a[length] = {3.8, 2.9, 3.3, 4.0, 2.4};
-    cout << "IPS sebelum sorting: " << endl;
-    print_array205(a, length);
-    selection_sort(a, length);
-    cout << "IPS setelah sorting: " << endl;
-    print_array205(a, length);
-return 0; 
+    string kalimat = "saya suka belajar pemrograman";
+    
+    cout << "\t BINARY SEARCH " << endl;
+    cout << "\n Kalimat : " << kalimat << endl;
+
+    cout << "\n Masukkan huruf yang ingin Anda cari : ";
+    cin >> cari;
+
+    cout << "\n Kalimat diurutkan : ";
+    // Urutkan kalimat dengan selection sort
+    selection_sort(kalimat);
+
+    // Tampilkan kalimat setelah diurutkan
+    cout << kalimat << endl;
+
+    binarysearch(kalimat);
+
+    return 0;
 }
 ```
 ### Output:
-![Unguided 1](https://github.com/suxeno/Struktur-Data-Assignment/assets/162097079/fb29776e-e211-4225-b1c6-c80c38253d60)
+![Unguided 1 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/7cf428a7-75ca-437b-ab17-c58f0b43c626)
 
 ### Interpretasi: 
 Output tersebut menunjukkan hasil dari program yang menggunakan algoritma binary search untuk mencari huruf tertentu dalam sebuah kalimat. Kalimat yang digunakan sebagai contoh adalah "saya suka belajar pemrograman". Pengguna diminta untuk memasukkan huruf yang ingin dicari, dalam hal ini huruf "s". Setelah itu, program mengurutkan kalimat secara alfabetis dan menampilkan hasilnya. Huruf "s" ditemukan pada indeks ke-25 setelah kalimat diurutkan.
