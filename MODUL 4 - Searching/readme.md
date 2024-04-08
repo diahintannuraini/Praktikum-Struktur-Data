@@ -5,23 +5,45 @@
 
 Algoritma dan struktur data berperan sangat besar dalam pembangunan sebuah perangkat lunak, baik dalam pembuatan desain serta implementasinya. Data Searching adalah proses yang ada dan dibutuhkan dalam pembangun-an sebuah aplikasi, ada banyak algoritma  yang  bisa  diterapkan  namun tidak semua algoritma memiliki efisiensi yang baik selama algoritma itu berjalan. Ada  beberapa  algoritma  yang  bisa digunakan untuk melakukan pencarian, seperti binary search dan sequential search.[1]
 
+### Binary Search
+Binary  Search  merupakan  sebuah  metode atau algoritma fungsi pencarian yang dirancang untuk berjalan  dengan  konsep  memanfaatkan  array  dari biner  yang  sudah  tersusun  secara  urut(Syahputra  & Sinurat,  2016). Fungsi  tersebut  membentuk  batas-batas untuk  dijadikan  ruang  lingkup  pencarian  kunci tersebut,  dan  dilakukan  secara  berulang  hingga mendapatkan kuncinya.[2] metode  ini lebih  effisien  dari  pada  metode  pencarian  linier  dimana semua  elemen  di  dalam  array  diuji  satu  persatu  sampai ditemukan elemen yang diinginkan 
 
-#### Jenis-jenis Algoritma Sorting
-1. Bubble Sort : Bubble    sort adalah    algoritma pengurutan tertua    dan    paling    sederhana    untuk di implementasikan. Algoritma ini juga cukup mudah dipahami. Algoritma ini bekerja dengan cara membandingkan  nilai setiap elemen pada tabel dengan elemen setelahnya, dan menukar nilainya jika sesuai dengan kondisi yang dibutuhkan. Proses ini akan terus berulang sampai semua elemen pada  tabel  sudah  diproses  dan  elemen  pada  tabel  sudah  terurut. Bubble  sortharus  melakukan banyak perbandingan ketika lebih banyak elemen data perlu disortir.[3]
+cara kerja binary search:
 
-2. Quick Sort : Algoritma ini mudah
-diimplementasikan, mampu diterapkan untuk hampir berbagai jenis tipe data, dan relatif bekerja lebih ringan jika dibandingkan dengan
-metode yang Iain. Quicksort adalah jenis algoritma divide-andconquer. Untuk mengurutkan sekelompok elemen pada array A[4]
+1. Pertama   pengambilan   data   dimulai   dari   posisi   1 sampai dengan posisi akhir (n)
 
-3. Shell Sort : merupakanAlgoritma yang paling  efisien diantara algoritma dengan kompleksitas algoritma yang sama adalah algoritma dengan kompleksitas O(n2).
+2. Selanjutnya  mencari posisi data  yang tengah dengan menggunakan rumus (posisi akhir)/2
 
-4. Selection Sort : selection  sort  adalah  metode  penyortiran  data, pemilihan    data    dalam    urutan    tertentu,    dan    kemudian membandingkannya  dengan  data  lain  dari  posisi  [Posisi  +  1] posisi untukmenemukan data terkecil dari rentang posisi ini[6]
+3. Setelah  itu data   yang  akan  dicari  dibanndingkan dengan   data   yangberada   ditengah,   apakah   data terseebut sama atau lebih kecil, atau lebih besar?
 
-5. Insert Sort: e insertion sort adalah teknik sederhana untuk menyortir daftar yang 
-hampir berurutan yang relatif efisien. Algoritma ini juga dapat digunakan sebagai 
-komponen yang lebih kompleks. [5]
+4. Seandainya  data  tersebut  lebih  besar,  maka  proses pencarian  yang  dicarikan  dengan  posisi  awal  adalah posisi tengah + 1
 
-6. Merge Sort :Algoritma Merge Sort adalah salah satu algoritma pengurutan yang efisien dan populer dalam ilmu komputer. Dalam pengembangan perangkat lunak, sering kali kita dihadapkan pada tugas pengurutan data, di mana urutan elemen-elemen data harus diatur secara teratur.[2]
+5. Jika data  sama  dengan  data  yang  dicari,  berarti  data tersebut telah ditemukan.[4]
+
+### Sequential Search
+Metode pencarian beruntun (Sequential Search) nama  lain  algoritma pencarian  beruntun adalah  pencarian  lurus  (linear  search).Algoritma pencarian beruntun adalah proses membandingkan setiap elemen larik satu persatu secara berurutan, mulai  dari  elemen  pertama,  sampai  elemen  yang dicari ditemukan atau seluruh elemen sudah habis diperiksa.  (Munir  dan  Lidya,  2016:444). 
+
+Adapun Proses   Algoritma   Sequential   Searching   adalah sebagai   berikut:   
+(1)   Pertama   data   melakukan perbandingan satu per satu secara berurutan dalam kumpulan  data  dengan  data  yang  dicari  sampai data  tersebut  ditemukan  atau  tidak  ditemukan. 
+
+(2) Pada  dasarnya,  pencarian  ini  hanya  melakukan pengulangan  data  dari  1  sampai  dengan  jumlah data  (n). 
+
+(3)  Setiap  pengulangan,  dibandingkan data  ke-i  dengan  data  yang  sedang  dicari. 
+   
+(4) Apabila data sama dengan yang dicari, berarti data telah   berhasil   di   temukan.   Sebaliknya   apabila sampai  akhir  melakukan  pengulangan  tidak  ada data  yang  sama  dengan  yang  dicari,  berarti  data tidak ada yang ditemukan. 
+
+Urutan Algoritma Sequential Searching:
+
+a. i <-0
+
+ b. Ketemu <-false 
+
+ c. Selama  (  tidak ketemu  )  dan  (  i  <  n  ) kerjakan baris 4 
+
+ d. Jika  (  data[i]  =  key  )  maka  ketemu  <-true jika tidak i <-i + 1 
+
+ e. Jika  (  ketemu  )  maka  i  adalah  indeks  dari data yang dicari[3]
+
 
 
 ## Guided 
@@ -63,7 +85,8 @@ int main(){
 ![Guided 1 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/09ee619b-bfa0-47e5-aead-c5dc44b69fd0)
 
  ### Interpretasi : 
- Kodingan di atas menggunakan algoritma Bubble Sort untuk mengurutkan array bilangan double secara meningkat. Algoritma ini membandingkan pasangan elemen dalam array dan menukar posisi jika diperlukan. Iterasi terus dilakukan hingga tidak ada lagi pertukaran posisi yang dibutuhkan, menandakan bahwa array sudah terurut. Fungsi 'print_array' digunakan untuk mencetak array sebelum dan sesudah pengurutan. Dalam 'main', array diinisialisasi dan dicetak sebelum dan sesudah pengurutan dilakukan.
+ Output dari kode tersebut menunjukkan hasil dari implementasi pencarian sekuensial sederhana. Data yang digunakan adalah angka {9, 4, 1, 7, 5, 12, 4, 13, 4, 10}. Program berhasil menemukan angka 10 dan memberi menunjukan bahwa angka tersebut terletak pada indeks ke-9 dalam larik tersebut. Dengan begitu output secara jelas menampilkan bahwa angka 10 telah ditemukan dalam data yang diberikan.
+
 
 ### 2. Buatlah sebuah project untuk melakukan pencarian data dengan menggunakan Binary Search
 
@@ -140,166 +163,157 @@ int main() {
 }
 ```
 ### Output:
-![Guided 2 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/c143c676-156c-42d3-b54a-8d93bf6f7e0e)
-
+![Guided 2 (4)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/86280556-7c92-4e31-b757-ea0c405f7413)
 ### Interpretasi:
 
-Kodingan di atas menggunakan algoritma Insertion Sort untuk mengurutkan array karakter. Algoritma ini membandingkan setiap elemen dengan elemen-elemen sebelumnya dalam array, kemudian memasukkannya ke posisi yang sesuai dengan urutan yang diinginkan. Loop 'for' berjalan melalui array dimulai dari indeks kedua, dengan loop 'while' di dalamnya untuk memeriksa dan menukar posisi elemen-elemen jika diperlukan. Fungsi 'print_array' mencetak array sebelum dan sesudah pengurutan. Dalam 'main', array karakter diinisialisasi dan dicetak sebelum dan sesudah pengurutan
+Output tersebut menunjukkan hasil dari pencarian Binary Search. Data awal yang digunakan adalah {1, 8, 2, 5, 4, 9, 7}. Diminta untuk memasukkan angka yang ingin dicari, yaitu angka 4. Program kemudian mengurutkan data secara ascending menjadi {1, 2, 4, 5, 7, 8, 9} untuk mempersiapkan proses pencarian biner. Setelah itu, program berhasil menemukan angka 4 dan menampilkan bahwa angka tersebut terletak pada indeks ke-2 dalam data yang telah diurutkan. Output menunjukkan bahwa angka 4 berhasil ditemukan menggunakan algoritma pencarian biner pada data yang diberikan.
 
 
 ## Unguided 
 
-### 1. Kelas S1 IF 2016 G memiliki 5 mahasiswa. Pada akhir semester mereka menerima lembar Indeks Prestasi Semester (IPS), masing-masing mahasiswa tersebut memiliki IPS sebagai berikut: {3.8, 2.9, 3.3, 4.0, 2.4}. Buatlah program untuk mengurutkan IPS mahasiswa tersebut dari yang terbesar hingga terkecil dengan menggunakan algoritma Selection Sort!
+### 1. Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
 
 ```C++
-#include<iostream>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 using namespace std;
-void selection_sort(float arr[], int n) {
-    for (int i = 0; i < n-1; i++) {
-        int min = i;
-        for (int j = i+1; j < n; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-} }
-        if (min != i) {
-            float temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
-} }
+
+char cari;
+
+void selection_sort(string &kalimat) {
+    sort(kalimat.begin(), kalimat.end());
 }
-void print_array205(float arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+
+void binarysearch(string kalimat) {
+    int awal, akhir, tengah, b_flag = 0;
+    awal = 0;
+    akhir = kalimat.length() - 1;
+    while (b_flag == 0 && awal <= akhir) {
+        tengah = (awal + akhir) / 2;
+        if(kalimat[tengah] == cari) {
+            b_flag = 1;
+            break;
+        } else if(kalimat[tengah] < cari)
+            awal = tengah + 1;
+        else
+            akhir = tengah - 1;
     }
-    cout << endl;
+    if(b_flag == 1)
+        cout<<"\n Huruf ditemukan pada index ke- " << tengah << endl;
+    else
+        cout<<"\n Huruf tidak ditemukan\n";
 }
+
 int main() {
-    const int length = 5;
-    float a[length] = {3.8, 2.9, 3.3, 4.0, 2.4};
-    cout << "IPS sebelum sorting: " << endl;
-    print_array205(a, length);
-    selection_sort(a, length);
-    cout << "IPS setelah sorting: " << endl;
-    print_array205(a, length);
-return 0; 
+    string kalimat = "saya suka belajar pemrograman";
+    
+    cout << "\t BINARY SEARCH " << endl;
+    cout << "\n Kalimat : " << kalimat << endl;
+
+    cout << "\n Masukkan huruf yang ingin Anda cari : ";
+    cin >> cari;
+
+    cout << "\n Kalimat diurutkan : ";
+    // Urutkan kalimat dengan selection sort
+    selection_sort(kalimat);
+
+    // Tampilkan kalimat setelah diurutkan
+    cout << kalimat << endl;
+
+    binarysearch(kalimat);
+
+    return 0;
 }
 ```
 ### Output:
-![Unguided 1](https://github.com/suxeno/Struktur-Data-Assignment/assets/162097079/fb29776e-e211-4225-b1c6-c80c38253d60)
+![Unguided 1 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/8b2256f2-7502-4973-bf41-f34dc55b2305)
 
 ### Interpretasi: 
-Program di atas menggunakan algoritma selection sort dalam C++ untuk mengurutkan angka dalam array. Algoritma ini bekerja dengan membandingkan setiap angka satu per satu, lalu menukar posisi jika ditemukan angka yang lebih kecil. Proses ini terus berulang hingga seluruh angka dalam array terurut dari yang terkecil ke yang terbesar.
+Output tersebut menunjukkan hasil dari program yang menggunakan algoritma binary search untuk mencari huruf tertentu dalam sebuah kalimat. Kalimat yang digunakan sebagai contoh adalah "saya suka belajar pemrograman". Pengguna diminta untuk memasukkan huruf yang ingin dicari, dalam hal ini huruf "s". Setelah itu, program mengurutkan kalimat secara alfabetis dan menampilkan hasilnya. Huruf "s" ditemukan pada indeks ke-25 setelah kalimat diurutkan.
 
-Program memiliki dua fungsi utama: selection_sort untuk melakukan pengurutan, dan print_array205 untuk mencetak isi array. Fungsi utama (main) membuat array angka awal, mencetaknya, mengurutkannya dengan selection sort, dan mencetak hasilnya.
-
-Output program adalah angka dalam array sebelum dan setelah diurutkan. Sebelum diurutkan, angka dalam array adalah 3.8 2.9 3.3 4.0 2.4, dan setelah diurutkan menjadi 2.4 2.9 3.3 3.8 4.0.
-
-
-### 2. Pak RT memiliki 10 warga dengan nama: siti, situ, sana, ana, ani, caca, cici, dida, dodo, dan dadi. Supaya mudah dalam melakukan pencarian, Pak RT akan mengurutkan namanama tersebut sesuai dengan alfabet. Buatlah program untuk membantu Pak RT dengan menggunakan algoritma Bubble Sort!
+### 2. Buatlah sebuah program yang dapat menghitung banyaknya huruf vocal dalam sebuah kalimat!
 ```C++
-#include<iostream>
+#include <iostream>
+#include <string>
+#include <cctype>
+
 using namespace std;
-void bubbleSort(string arr[], int n) {
-    for (int i = 0; i < n-1; i++) {
-        for (int j = 0; j < n-i-1; j++) {
-            if (arr[j] > arr[j+1]) {
-                string temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-} }
-} }
-void printArray(string arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+
+int hitungVokal(string kalimat) {
+    int jumlahVokal = 0;
+    for (char huruf : kalimat) {
+        // Mengonversi huruf menjadi huruf kecil untuk mempermudah perbandingan
+        huruf = tolower(huruf);
+        // Memeriksa apakah huruf adalah huruf vokal
+        if (huruf == 'a' || huruf == 'e' || huruf == 'i' || huruf == 'o' || huruf == 'u') {
+            jumlahVokal++;
+        }
     }
-    cout << endl;
+    return jumlahVokal;
 }
+
 int main() {
-const int jumlah205 = 10;
-string nama[jumlah205] = {"siti", "situ", "sana", "ana",
-"ani", "caca", "cici", "dida", "dodo", "dadi"};
-cout << "Nama-nama warga sebelum diurutkan: " << endl; printArray(nama, jumlah205);
-bubbleSort(nama, jumlah205);
-cout << "Nama-nama warga setelah diurutkan: " << endl; printArray(nama, jumlah205);
-return 0; 
+    string kalimat;
+    
+    cout << "Masukkan sebuah kalimat: ";
+    getline(cin, kalimat);
+    
+    int jumlahVokal = hitungVokal(kalimat);
+    
+    cout << "Jumlah huruf vokal dalam kalimat tersebut adalah: " << jumlahVokal << endl;
+    
+    return 0;
 }
 ```
 ### Output:
-![Unguided 2](https://github.com/suxeno/Struktur-Data-Assignment/assets/162097079/4d4d0eb4-db9f-474e-8e3e-e81ee2626083)
+![Unguided 2 (2)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/fefb5215-4b4e-44b3-908e-84cf77c46c65)
 
 ### Interpretasi:
-Fungsi utama bubbleSort digunakan untuk melakukan pengurutan dengan dua loop bersarang untuk membandingkan dan menukar elemen-elemen array. Setelah pengurutan, array akan terurut.
+Output tersebut merupakan hasil dari eksekusi program yang dibuat untuk menghitung jumlah huruf vokal dalam suatu kalimat. Diminta untuk memasukkan sebuah kalimat, contohnya "intan cantik". Setelah menginput kalimat tersebut, program melakukan perhitungan dan menemukan bahwa terdapat 4 huruf vokal dalam kalimat tersebut. Oleh karena itu, output menampilkan hasil dari jumlah huruf vokal yang ada dalam kalimat yang dimasukkan, yaitu sebanyak 4 huruf vokal.
 
-Selain itu, ada fungsi printArray yang mencetak isi array ke layar. Di dalam fungsi main, array nama diisi dengan nama-nama warga dan dicetak sebelum dan setelah diurutkan menggunakan bubble sort.
+### 3. Diketahui data = 9, 4, 1, 4, 7, 10, 5, 4, 12, 4. Hitunglah berapa banyak angka 4 dengan menggunakan algoritma Sequential Search!
 
-Hasil output program menampilkan nama-nama warga sebelum dan sesudah pengurutan. Sebelum diurutkan, nama-nama warga adalah "siti situ sana ana ani caca cici dida dodo dadi", dan setelah diurutkan menjadi "ana ani caca cici dadi dida dodo sana siti situ".
-
-### 3. Buatlah program yang meminta user menginputkan suatu bilangan n dan meminta user untuk menginputkan sejumlah n karakter. Kemudian program akan melakukan sorting secara menaik (ascending) dan menurun (descending)! 
 ```C++
-#include<iostream>
+#include <iostream>
 using namespace std;
-void bubbleSortAscending(char arr[], int n) {
-    for (int i = 0; i < n-1; i++) {
-        for (int j = 0; j < n-i-1; j++) {
-            if (arr[j] > arr[j+1]) {
-                char temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-} }
-} }
-void bubbleSortDescending(char arr[], int n) {
-    for (int i = 0; i < n-1; i++) {
-        for (int j = 0; j < n-i-1; j++) {
-            if (arr[j] < arr[j+1]) {
-                char temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-} }
-} }
+
 int main() {
-    int n;
-    cout << "input (n): "; cin >> n;
-    char karakter205[n];
-    for (int i = 0; i < n; i++) {
-        cout << "Karakter ke-" << i+1 << ": ";
-        cin >> karakter205[i];
+    int data[] = {9, 4, 1, 4, 7, 10, 5, 4, 12, 4};
+    int panjang_data = sizeof(data) / sizeof(data[0]); // Menghitung panjang larik data
+    int angka_yang_dicari = 4;
+    int count = 0; // Variabel untuk menghitung jumlah kemunculan angka 4
+
+    // Algoritma Sequential Search
+    for (int i = 0; i < panjang_data; ++i) {
+        if (data[i] == angka_yang_dicari) {
+            count++; // Meningkatkan jumlah kemunculan angka 4 setiap kali ditemukan
+        }
     }
-cout << "\nUrutan karakter sebelum sorting: " << endl; for (int i = 0; i < n; i++) {
-        cout << karakter205[i] << " ";
-    }
-    cout << endl;
-    bubbleSortAscending(karakter205, n);
- 
-    cout << "\nUrutan karakter setelah ascending sort: " << endl;
-    for (int i = 0; i < n; i++) {
-        cout << karakter205[i] << " ";
-    }
-    cout << endl;
-    bubbleSortDescending(karakter205, n);
-cout << "\nUrutan karakter setelah descending sort: " << endl;
-    for (int i = 0; i < n; i++) {
-        cout << karakter205[i] << " ";
-    }
-    cout << endl;
-return 0; 
+
+    cout << "Jumlah kemunculan angka 4 dalam data adalah: " << count << endl;
+
+    return 0;
 }
 ```
 #### Output:
-![Unguided 3](https://github.com/suxeno/Struktur-Data-Assignment/assets/162097079/20c93e8c-d948-4de3-8f0c-d61a44505d4f)
+
+![Unguided 3 (3)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/33897eeb-d1d3-4af3-833c-1d8635357219)
+
 
 ### Interpretasi:
 
-Pada fungsi bubbleSortAscending dan bubbleSortDescending, terdapat dua loop bersarang untuk membandingkan dan menukar karakter-karakter dalam array. Fungsi bubbleSortAscending digunakan untuk mengurutkan karakter-karakter dari terkecil ke terbesar, sementara bubbleSortDescending untuk mengurutkan dari terbesar ke terkecil.
-
-Di dalam fungsi main, program meminta input jumlah karakter yang akan diurutkan, kemudian karakter-karakter tersebut dimasukkan ke dalam array. Setelah itu, program mencetak urutan karakter sebelum pengurutan, melakukan pengurutan secara ascending, mencetak urutan setelah pengurutan secara ascending, melakukan pengurutan secara descending, dan terakhir mencetak urutan setelah pengurutan secara descending.
-
-Hasil output program menampilkan urutan karakter sebelum pengurutan, urutan setelah pengurutan secara ascending, dan urutan setelah pengurutan secara descending.
-
+Output tersebut menampilkan hasil dari eksekusi jalannya program yang telah dilakukan. Program tersebut berfungsi untuk menghitung berapa kali angka 4 muncul dalam data yang diberikan menggunakan metode Sequential Search. Hasilnya menunjukkan bahwa jumlah kemunculan angka 4 dalam data yang diberikan adalah 4. Artinya, angka 4 muncul sebanyak 4 kali dalam data yang digunakan. 
 
 ## Kesimpulan
-Algoritma Selection Sort digunakan untuk mengurutkan array bilangan float dengan cara membandingkan setiap elemen dan menukar mereka jika diperlukan. Waktu eksekusi algoritma ini tergantung pada jumlah elemen dalam array. Sebagai contoh, array float berhasil diurutkan dari yang terkecil hingga terbesar menggunakan Selection Sort. Di sisi lain, Bubble Sort merupakan algoritma sorting sederhana yang membandingkan dan menukar pasangan elemen yang berdekatan secara berulang. Meskipun efektif untuk mengurutkan array string secara alfabetis, Bubble Sort kurang efisien terutama pada data yang besar. Dalam kasus ketiga, Bubble Sort digunakan untuk mengurutkan karakter baik dalam urutan naik maupun turun, menunjukkan fleksibilitas algoritma ini dalam mengatasi berbagai jenis data dengan sedikit modifikasi pada implementasinya.
+Pada praktikum kali ini, dalam mencari jumlah angka dan huruf dalam sebuah kalimat, dapat menggunakan dua jenis algoritma pencarian yang berbeda yaitu sequential search dan binary search. Sequential search adalah metode pencarian sederhana yang memeriksa satu per satu setiap elemen dalam data. Ini digunakan untuk mencari dalam data yang tidak terurut atau tidak terlalu besar. Di sisi lain, binary search adalah metode pencarian yang lebih efisien, bekerja dengan membagi data menjadi dua bagian dan memeriksa di setengah mana elemen yang dicari mungkin berada. Namun, binary search hanya dapat digunakan pada data yang sudah terurut. Jika data tidak terlalu besar atau tidak terurut, sequential search mungkin lebih cocok, sedangkan jika data sudah terurut, binary search lebih efisien. 
 
 ## Referensi
 [1] Religia, Y. (2019). ANALISIS ALGORITMA SEQUENTIAL SEARCH DAN BINARY SEARCH PADA BIG DATA. Pelita Teknologi, 14(1), 74-79. https://doi.org/10.37366/pelitatekno.v14i1.232
 
-[2] 
+[2] METHOMIKA: Jurnal Manajemen Informatika & Komputersisasi Akuntansi
+
+[3] INFORMATIKA, C., & Nurul Imamah. (2021). PERBANDINGAN ALGORITMA SEQUENTIAL SEARCH DAN ALGORITMA BINARY SEARCH PADA APLIKASI KAMUS BAHASA INDONESIA MENGGUNAKAN PHP DAN JQUERY . COMPUTING | Jurnal Informatika, 8(01), 1–6. Retrieved from https://www.ejournal.unibba.ac.id/index.php/computing/article/view/564
+
+[4] Toyib, R., Darnita, Y., & Deva, A. R. (2021). PENERAPAN ALGORITMA BINARY SEARCH PADA APLIKASI E-ORDER. JURNAL MEDIA INFOTAMA, 17(1). https://doi.org/10.37676/jmi.v17i1.1314

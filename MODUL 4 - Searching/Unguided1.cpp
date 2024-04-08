@@ -31,7 +31,7 @@ void binarysearch(string kalimat) {
 }
 
 int main() {
-    string kalimat = "hai gais";
+    string kalimat = "saya suka belajar pemrograman";
     
     cout << "\t BINARY SEARCH " << endl;
     cout << "\n Kalimat : " << kalimat << endl;
