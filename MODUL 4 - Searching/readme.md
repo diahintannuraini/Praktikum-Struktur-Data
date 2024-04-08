@@ -48,7 +48,7 @@ a. i <-0
 
 ## Guided 
 
-### 1. 1. Buatlah sebuah project dengan menggunakan sequential search sederhana untuk melakukan pencarian data.
+###  1. Buatlah sebuah project dengan menggunakan sequential search sederhana untuk melakukan pencarian data.
 
 ```C++
 #include <iostream>
@@ -171,7 +171,7 @@ Output tersebut menunjukkan hasil dari pencarian Binary Search. Data awal yang d
 
 ## Unguided 
 
-### Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
+### 1. Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
 
 ```C++
 #include <iostream>
