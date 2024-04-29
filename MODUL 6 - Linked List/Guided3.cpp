@@ -14,7 +14,7 @@ void init() {
     tail = head; 
 } 
 
-// Pengecekan apakah Linked List kosong
+// Pengecekan apakah Linked List kosong 
 int isEmpty() { 
     return head == NULL; 
 } 

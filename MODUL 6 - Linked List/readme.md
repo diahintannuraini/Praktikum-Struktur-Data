@@ -3,11 +3,27 @@
 
 ## Dasar Teori
 
+### Pengertian Linked list:
+Struktur data dinamis yang paling sederhana yaitu Linked List atau struktur berkait, yaitu cara
+penyimpanan data secara terstruktur, sehingga pemrogram dapat secara otomatis menciptakan
+suatu tempat baru untuk menyimpan data kapan saja diperlukan. (Yosef Murya K.A., ST.,
+M.Kom, 2013). Linked list (senarai berantai) disebut juga senarai satu arah (One Way List). Masing-masing komponen dinamakan dengan simpul (node) Linked list mengandung tiga buah simpul atau node. Sebuah pointer menunjuk simpul terkiri dan
+setiap simpul mempunyai pointer yang menunjuk ke simpul berikutnya. Pointer pada simpul terakhir tidak menunjuk ke mana-mana, maka berisi NULL.
+Simpul pada Linked list terdiri dari dua komponen utama, yaitu :
+1. Data, yaitu bisa berupa satu elemen data atau beberapa elemen data
+2. Pointer yang menunjuk ke simpul lain[1]
 
+### A.Linked List (Senarai berantai)
+Linked List (Senarai berantai)Senarai berantai(bahasa Inggris:linked list) atau kadang-kadang disebut dengan senarai bertaut atau daftar bertaut dalam ilmu computer merupakan sebuah struktur data yang digunakan untuk menyimpan sejumlah objek data biasanya secara terurut sehingga memungkinkan penambahan, pengurangan, danpencarian atas elemen data yang tersimpan dalam senarai dilakukan secara lebih efektif.Pada praktiknya sebuah struktur data memiliki elemen yang digunakan untuk saling menyimpan rujukan antara satu dengan lainnya sehingga membentuk sebuah senarai abstrak, tiap-tiap elemen yang terdapat pada senarai abstrak ini seringkali disebut sebagai node. karena mekanisme rujukan yang saling terkait inilah disebut sebagai senarai berantai. Sebuah senarai berantai dengan tiap-tiap node yang terdiri atas dua elemen, data integer, dan elemen rujukan ke node berikutnya. Senarai berantai (linked list) terdiri dari dua bagian yaitu senarai berantai satu arah atau biasa disebut single linked list ,dan senarai berantai dua arah atau double linked list. 
 
+### B. Perbedaan single linked listdan double linked list
+Seperti yang kita ketahui bahwa senarai itu memiliki duaj enis yaitu senarai berantai satuarah (senarai tunggal) atau singel linked list dan senarai berantai dua arah atau double linked list.S enarai satu arah yaitu bila struktur data sebuah node hanya memiliki satu tautan atasnode berikutnya dalam sebuah senarai, maka senarai tersebut dinamakan sebagai senarai tunggal. Senarai tunggal dengan tiap-tiap node yang terdiri atas dua elemen, data integer, dan elemen rujukan ke node berikutnya.Pada dasarnya, penggunaan Double Linked List hampir sama dengan penggunaan Single Linked List yang telah kita pelajari pada materi sebelumnya. Hanya saja Double Linked List menerapkan sebuah pointer baru, yaitu prev, yang digunakan untuk menggeser mundur selain tetap mempertahankan pointer next. Berbeda halnya dengan senarai tunggal, pada senarai dua arah (singel linked list), struktur data atas tiap-tiap node memiliki rujukan pada node sebelum dan berikutnya. Sebagian algoritma membutuhkan taut ganda, contohnya sorting dan reverse traversing. Senarai [2]
 
-
-
+### Operasi pada Single Linked List dan Double Linked List:
+1.Sisip  Depan  :  menyisipkan  node  baru  pada  bagian  awalnode  atau headdari Single Linked List.
+2.Sisip Belakang : menyisipkan node baru pada bagian belakang node dari Single Linked List.
+3.Sisip Posisi : menyisipkan node baru pada posisi tertentu dari Single Linked List.
+4.Hapus Posisi : menghapus node baru pada posisi tertentu dari Single Linked List.[3]
 
 
 ## Guided 
@@ -262,10 +278,155 @@ int main() {
 ![Guided 1 Linkedlist non circular](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/f3ad2202-63b1-4889-95db-4f047db90d97)
 
 ### Interpretasi:
-
-
+Output tersebut mencerminkan serangkaian operasi pada sebuah linked list. Nilai 3 dimasukkan di depan, diikuti dengan nilai 5 di belakangnya. Kemudian, nilai 2 dimasukkan di depan, menggeser nilai 3 ke posisi kedua. Node pertama dihapus, lalu node terakhir juga dihapus. Nilai 7 dimasukkan di posisi kedua, tetapi kemudian node kedua dihapus. Node pertama diubah menjadi 1 dan node terakhir menjadi 8. Namun, percobaan mengubah nilai node kedua menjadi 11 menghasilkan pesan kesalahan karena tidak ada node kedua dalam linked list yang hanya memiliki dua node.
 
 #### 2.Linked List Circular 
+```C++
+#include <iostream>
+using namespace std;
+
+///PROGRAM DOUBLE LINKED LIST
+class Node {
+public:
+    int data;
+    Node* prev;
+    Node* next;
+};
+
+class DoublyLinkedList {
+public:
+    Node* head;
+    Node* tail;
+
+    DoublyLinkedList() {
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void push(int data) {
+        Node* newNode = new Node;
+        newNode->data = data;
+        newNode->prev = nullptr;
+        newNode->next = head;
+        if (head != nullptr) {
+            head->prev = newNode;
+        } else {
+            tail = newNode;
+        }
+        head = newNode;
+    }
+
+    void pop() {
+        if (head == nullptr) {
+            return;
+        }
+        Node* temp = head;
+        head = head->next;
+        if (head != nullptr) {
+            head->prev = nullptr;
+        } else {
+            tail = nullptr;
+        }
+        delete temp;
+    }
+
+    bool update(int oldData, int newData) {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->data == oldData) {
+                current->data = newData;
+                return true;
+            }
+            current = current->next;
+        }
+        return false;
+    }
+
+    void deleteAll() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void display() {
+        Node* current = head;
+        while (current != nullptr) {
+            cout << current->data << " ";
+            current = current->next;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    DoublyLinkedList list;
+    while (true) {
+        cout << "1. Add data" << endl;
+        cout << "2. Delete data" << endl;
+        cout << "3. Update data" << endl;
+        cout << "4. Clear data" << endl;
+        cout << "5. Display data" << endl;
+        cout << "6. Exit" << endl;
+        int choice;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice) {
+            case 1: {
+                int data;
+                cout << "Enter data to add: ";
+                cin >> data;
+                list.push(data);
+                break;
+            }
+            case 2: {
+                list.pop();
+                break;
+            }
+            case 3: {
+                int oldData, newData;
+                cout << "Enter old data: ";
+                cin >> oldData;
+                cout << "Enter new data: ";
+                cin >> newData;
+                bool updated = list.update(oldData, newData);
+                if (!updated) {
+                    cout << "Data not found" << endl;
+                }
+                break;
+            }
+            case 4: {
+                list.deleteAll();
+                break;
+            }
+            case 5: {
+                list.display();
+                break;
+            }
+            case 6: {
+                return 0;
+            }
+            default: {
+                cout << "Invalid choice" << endl;
+                break;
+            }
+        }
+    }
+    return 0;
+}
+```
+
+### Output:
+![Guided 2 laprak 6](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/6128f4cd-7419-46b2-9033-e58cab3f770d)
+
+### Interpretasi:
+Output tersebut adalah menu interaktif untuk mengelola sebuah double linked list. Pengguna diberikan enam pilihan: "Add data" untuk menambahkan data ke linked list, "Delete data" untuk menghapus data dari linked list, "Update data" untuk mengubah data yang ada dengan data baru, "Clear data" untuk menghapus semua data dari linked list, "Display data" untuk menampilkan seluruh data dalam linked list, dan "Exit" untuk keluar dari program. Setiap pilihan memicu fungsi yang sesuai pada kelas DoublyLinkedList, seperti menambahkan data baru, menghapus data, mengubah data, atau menampilkan data. Program akan berjalan terus menerus hingga pengguna memilih untuk keluar.
+
+### 3. Single linked list circular
 ```C++
 #include <iostream> 
 using namespace std; 
@@ -473,13 +634,16 @@ int main() {
     return 0; 
 }
 ```
-### Output:
-![Guided 2 Linkedlist Circular](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/efc8c328-4684-47b7-8ef4-e34eb3e41fb6)
+
+
+
+### Output: 
+![Guided 3 Laprak 6](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/97dc0b13-b836-47c5-80e0-12755e676eaf)
 
 ### Interpretasi:
+Output tersebut mencerminkan hasil dari beberapa operasi pada sebuah single linked list yang berputar. Dimulai dengan kata "Ayam" yang dimasukkan ke dalam list, diikuti oleh "Bebek" yang diletakkan di depannya dan "Cicak" di belakangnya. Selanjutnya, "Domba" dimasukkan setelah "Cicak", menggantikan "Cicak" yang dihapus dari list. Kemudian, node terakhir, yaitu "Domba", dihapus, serta node pertama "Bebek" juga dihapus. Setelah itu, kata "Sapi" dimasukkan di posisi kedua, namun kemudian dihapus kembali. Akhirnya, linked list berisi kata "AyamCicak".
 
-
-## Unguided 
+## Unguided :
 
 ### 1. Buatlah menu untuk menambahkan, mengubah, menghapus, dan melihat Nama dan  NIM mahasiswa, berikut contoh tampilan output dari nomor 1: 
 
@@ -809,10 +973,10 @@ int main() {
 }
 ```
 ### Output:
-
+![Unguided 1 (3)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/58e54e1a-0935-466d-a726-88c2e1888fec)
 
 ### Interpretasi:
-
+Output tersebut adalah hasil dari interaksi pengguna dengan program single linked list non-circular. Program ini memungkinkan pengguna untuk menambah, mengubah, menghapus, dan menampilkan data mahasiswa. Pengguna diminta untuk memilih operasi yang diinginkan dari menu yang disediakan. Setelah pengguna memilih operasi, program akan mengeksekusi fungsi yang sesuai dan memberikan respons berupa pesan hasil operasi. Jika pengguna memilih untuk keluar dari program, maka program akan berhenti dan menampilkan pesan "Terima kasih!". Dengan demikian, output tersebut mencerminkan interaksi pengguna dengan linked list melalui program yang telah dibuat menggunakan kodingan tersebut.
 
 ### 2. Setelah membuat menu tersebut, masukkan data sesuai urutan berikut, lalu  tampilkan data yang telah dimasukkan. (Gunakan insert depan, belakang atau tengah) 
 ```C++
@@ -1142,9 +1306,7 @@ int main() {
 
 ```
 ### Output:
-
-
-### Interpretasi:
+![Unguided 2 (3)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/60dbdc86-22b2-473c-a2f7-7450de767a7b)
 
 ### 3. Lakukan perintah berikut: 
 
@@ -1504,48 +1666,59 @@ int main() {
 a.) ![Output Unguided 3 (a)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/292f6ded-8022-4fad-b170-5233d15951a7)
 
 ### Interpretasi:
+kodingan ini meminta untuk menambahkan nama wati dengan nim 23300004 diantara nama farrel dan denis menggunakan opsi tambah tengah yang ada pada pilihan nomor 3 kemudian diminta untuk memasukan nama lalu nim serta posisi penambahan. setelah itu dapat di cek apakah nama tersebut sudah ditambahkan atau belum dengan cara memilih opsi tampilkan.
 
 b.) ![Output Unguided 3 (b)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/369ccb6b-1e37-46ef-8bcb-69715d5e6157)
 
 ### Interpretasi:
+kodingan ini meminta untuk menghapus data denis dengan cara memilih opsi hapus tengah yang ada pada pilihan nomor 9 kemudian diminta untuk memasukan posisi penghapusan.
 
 c.) ![Output Unguided 3 (c)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/0d3cfa73-443a-48ad-b203-1d099372c853)
 
 ### Interpretasi:
+pada kodingan ini diminta untuk menambahkan data owi dengan nim 2330000 pada awal yaitu dengan cara memilih opsi tambah depan yang ada pada pilihan nomor 1 kemudian masukan nama serta nim nya.
 
 d.) ![Output Unguided 3 (d)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/1e29a737-2ea8-4fa1-88cb-89464077a08e)
 
 ### Interpretasi:
+kodingan ini meminta untuk menambahkan data david dengan nim 23300100 pada bagian akhir yaitu dengan cara memilih opsi tambah belakang yang ada pada pilihan nomor 2 kemudian tinggal masukan nama serta nim yang akan ditambahkan.
 
 e.) ![Output Unguided 3 (e)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/c7be764d-7166-47f2-ba19-4a93eb277651)
 
 ### Interpretasi:
+kodingan ini meminta untuk mengubah data yang sebelumnya udin menjadi idin dengan nim 23300045 dengan cara memilih opsi ubah tengah yang ada pada pilihan nomor 6 yang kemudian pilih posisi pengubahan lalu masukan nama serta nim yang akan diubah.
 
 f.) ![Output Unguided 3 (f)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/84a0b4df-dbe1-4da1-9c6f-2ec355e7fc50)
 
 ### Interpretasi:
+selanjutnya diminta untuk mengubah data terakhir yang sebelumnya david menjadi lucy dengan nim 23300101 yang dilakukan dengan cara memilih opsi ubah belakang yang ada pada pilihan nomor 5, kemudian masukan nim serta nama yang akan diubah.
 
 g.) ![Output Unguided 3 (g)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/8ed2c594-9f8e-4ef4-9d29-891e0ee370f6)
 
 ### Interpretasi:
+kemudian diminta untuk menghapus data awal yaitu owi dengan cara memilih opsi hapus depan yang ada pada pilihan nomor 7.
 
 h.) ![Output Unguided 3 (h)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/e9d2b881-2220-4e3e-92bc-ef7deb8d94ff)
 
 ### Interpretasi:
+diminta untuk mengubah data awal yang sebelumnya jawad menjadi bagas dengan nim 2330002 dengan cara memilih opsi ubah depan yang ada pada pilihan nomor 4 kemudian selanjutnya memasukan nama serta nim yang akan diubah.
 
 i.) ![Output Unguided 3 (i)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/56df75b0-de53-4dee-916d-ae46380fd789)
 
 ### Interpretasi:
+kemudian diminta untuk menghapus data awal yang sebelumnya jawad menjadi bagas dengan nim 2330002 dengan cara memilih opsi ubah depan yang ada pada pilihan nomor 4, kemudian masukan data yang akan diubah. 
 
 j.) ![Output Unguided 3 (j)](https://github.com/diahintannuraini/Praktikum-Struktur-Data/assets/162097079/123e5fd5-c858-408e-8624-a3ebb2390ee2)
 
 ### Interpretasi:
-
-
+berikut adalah hasil setelah melakukan perintah sebelumnya.
 
 
 
 ## Kesimpulan
-
+linked list merupakan sebuah struktur data yang digunakan untuk menyimpan sejumlah objek data biasanya secara terurut sehingga memungkinkan penambahan, pengurangan, dan pencarian atas elemen data yang tersimpan dalam senarai dilakukan secara lebih efektif. Linked list memiliki dua jenis yaitu singel linked list dan double linked list
 
 ## Referensi
+[1] Siregar, A. A. N. (2019, April 25). Pengertian Linked Object. https://doi.org/10.31219/osf.io/dmwr3
+[2] SUDARSO, S. T. I. K. Y. LAPORAN PRAKTIKUM PROGRAM POINTER & LINKED LIST PADA PHP.
+[3] Dharma, A. (2018). Aplikasi Pembelajaran Linked List Berbasis Mobile Learning. Riau Journal Of Computer Science, 4(1), 1-11.
