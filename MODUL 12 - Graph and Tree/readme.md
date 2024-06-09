@@ -49,6 +49,7 @@ c.	Secara rekursif mencetak seluruh data pada subpohon kanan [1]
 
 
 Sebuah pohon biner T dapat didefinisikan sebagai sekumpulan terbatas dari elemen-elemen yang disebut nodes/simpul dimana :
+
 a. T dikatakan kosong (disebut null tree/ pohon null atau empty tree/pohon kosong)
 
 b. T terdiri dari sebuah node khusus yang dipanggil R, disebut root dari T dan nodenode T lainnya membentuk sebuah pasangan terurut dari binary tree T1 dan T2 yang tidak berhubungan yang kemudian dipanggil subtree kiri dan subtree kanan.[2]
